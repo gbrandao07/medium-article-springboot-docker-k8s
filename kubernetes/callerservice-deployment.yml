@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+ name: callerservice-deployment
+spec:
+ replicas: 1
+ selector:
+  matchLabels:
+   app: callerservice
+ template:
+  metadata:
+   labels:
+    app: callerservice
+  spec:
+   containers:
+    - name: callerservice
+      image: callerservice:1.0
+      imagePullPolicy: Never
+      ports:
+      - containerPort: 8180

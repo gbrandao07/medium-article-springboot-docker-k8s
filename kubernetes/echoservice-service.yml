@@ -1,0 +1,12 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: echoservice
+spec:
+  type: ClusterIP
+  selector:
+    app: echoservice
+  ports:
+  - protocol: TCP
+    port: 8280
+    targetPort: 8280

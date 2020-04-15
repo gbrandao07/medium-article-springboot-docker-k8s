@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+ name: echoservice-deployment
+spec:
+ replicas: 1
+ selector:
+  matchLabels:
+   app: echoservice
+ template:
+  metadata:
+   labels:
+    app: echoservice
+  spec:
+   containers:
+    - name: echoservice
+      image: echoservice:1.0
+      imagePullPolicy: Never
+      ports:
+      - containerPort: 8280
